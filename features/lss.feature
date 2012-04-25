@@ -23,4 +23,12 @@ similar to the "ls" command.
     """
 	 4 sd_fx29.%04d.rgb 101-104
 	"""
-
+	
+  Scenario: Empty directory
+    Given the previous output from the ls command:
+    """
+    """
+    When lss parses the output
+    Then the output should look like:
+    """ 
+	"""
