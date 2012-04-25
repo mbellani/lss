@@ -8,6 +8,6 @@ When /^lss parses the output$/ do
   @output = @lss_parser.parse
 end
 
-Then /^the out put should look like:$/ do |expected_output|
+Then /^the output should look like:$/ do |expected_output|
   @output.should == expected_output
 end

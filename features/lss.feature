@@ -2,13 +2,25 @@ Feature: Using a language that you are comfortable with (hopefully something fai
 write the "lss" command. It accepts one optional argument: a path to the directory or file,
 similar to the "ls" command.
 
-  Scenario: Simple Listing 
+  Scenario: Simple directory listing with 3 files following a pattern  sd_fx29.%04D.rgb
     Given the previous output from the ls command:
     """
-     sd_fx29.0101.rgb sd_fx29.0102.rgb sd_fx29.0103.
+     sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb
     """
     When lss parses the output
-    Then the out put should look like:
+    Then the output should look like:
     """
 	 3 sd_fx29.%04d.rgb 101-103
 	"""
+	
+  Scenario: Simple directory listing with 4 files following a pattern  sd_fx29.%04D.rgb
+    Given the previous output from the ls command:
+    """
+     sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb sd_fx29.104.rgb
+    """
+    When lss parses the output
+    Then the output should look like:
+    """
+	 4 sd_fx29.%04d.rgb 101-104
+	"""
+
