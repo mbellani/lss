@@ -46,3 +46,18 @@ similar to the "ls" command.
     1 b.txt
     1 c.txt
 	"""
+	
+  Scenario: Directory containing files with and without seqence numbers 
+            The sequence number follows the pattern sd_fx29.%04D.rgb
+    Given the previous output from the ls command:
+    """
+      a.txt b.txt c.txt sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb sd_fx29.104.rgb
+    """
+    When lss parses the output
+    Then the output should look like:
+    """ 
+    1 a.txt
+    1 b.txt
+    1 c.txt
+    4 sd_fx29.%04d.rgb 101-104
+	"""
