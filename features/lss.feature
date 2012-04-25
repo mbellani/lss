@@ -5,23 +5,23 @@ similar to the "ls" command.
   Scenario: Simple directory listing with 3 files following a pattern  sd_fx29.%04D.rgb
     Given the previous output from the ls command:
     """
-     sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb
+     sd_fx29.0101.rgb sd_fx29.0102.rgb sd_fx29.0103.rgb
     """
     When lss parses the output
     Then the output should look like:
     """
-	 3 sd_fx29.%04d.rgb 101-103
+	 3 sd_fx29.%04d.rgb 0101-0103
 	"""
 	
   Scenario: Simple directory listing with 4 files following a pattern  sd_fx29.%04D.rgb
     Given the previous output from the ls command:
     """
-     sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb sd_fx29.104.rgb
+     sd_fx29.0101.rgb sd_fx29.0102.rgb sd_fx29.0103.rgb sd_fx29.0104.rgb
     """
     When lss parses the output
     Then the output should look like:
     """
-	 4 sd_fx29.%04d.rgb 101-104
+	 4 sd_fx29.%04d.rgb 0101-0104
 	"""
 	
   Scenario: Empty directory
@@ -51,7 +51,7 @@ similar to the "ls" command.
             The sequence number follows the pattern sd_fx29.%04D.rgb
     Given the previous output from the ls command:
     """
-      a.txt b.txt c.txt sd_fx29.101.rgb sd_fx29.102.rgb sd_fx29.103.rgb sd_fx29.104.rgb
+      a.txt b.txt c.txt sd_fx29.0101.rgb sd_fx29.0102.rgb sd_fx29.0103.rgb sd_fx29.0104.rgb
     """
     When lss parses the output
     Then the output should look like:
@@ -59,5 +59,5 @@ similar to the "ls" command.
     1 a.txt
     1 b.txt
     1 c.txt
-    4 sd_fx29.%04d.rgb 101-104
+    4 sd_fx29.%04d.rgb 0101-0104
 	"""
