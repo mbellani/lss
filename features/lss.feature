@@ -32,3 +32,17 @@ similar to the "ls" command.
     Then the output should look like:
     """ 
 	"""
+	
+
+  Scenario: Directory containing files without sequence numbers
+    Given the previous output from the ls command:
+    """
+      a.txt b.txt c.txt
+    """
+    When lss parses the output
+    Then the output should look like:
+    """ 
+    1 a.txt
+    1 b.txt
+    1 c.txt
+	"""
