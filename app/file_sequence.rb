@@ -29,6 +29,13 @@ class FileSequence
     @numbers.to_a
   end
   
+  def to_s
+    sequence_numbers = numbers
+    s = "#{sequence_numbers.length} #{@file_name}"
+    s+=" #{sequence_numbers.first}-#{sequence_numbers.last}" if sequence_numbers.length>1
+    s
+  end
+  
 private
 
   def transform(file_name)
@@ -56,6 +63,5 @@ private
       "%#{length_of_sequence_number}d"
     end
   end
-  
-  
+
 end

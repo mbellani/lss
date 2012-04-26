@@ -34,4 +34,6 @@ class TestSequenceIdentificationInFileSequence < Test::Unit::TestCase
     assert_equal(false,file_sequence.falls_in_sequence?("a.txt"))
   end
   
+  
+  
 end
