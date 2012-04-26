@@ -35,7 +35,7 @@ class FileSequence
     s+=" #{sequence_numbers.first}-#{sequence_numbers.last}" if sequence_numbers.length>1
     s
   end
-  
+
 private
 
   def transform(file_name)
