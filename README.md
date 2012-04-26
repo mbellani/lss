@@ -48,6 +48,8 @@ I have not tested it under other environments.
 
 Test it out
 ===
+<pre>
 git clone https://mbellani@github.com/mbellani/lss.git
 bundler install
 cucumber
+</pre>
