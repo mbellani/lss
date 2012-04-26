@@ -1,8 +1,14 @@
+require 'set'
+
 class FileSequence
   
   def initialize(file_name)
-    @ext = file_name[file_name.rindex(".")+1..file_name.length] if !file_name.nil?
-    @file_name = transform(file_name) if !file_name.nil?
+    unless file_name.nil?
+      @ext = file_name[file_name.rindex(".")+1..file_name.length]
+      @file_name = transform(file_name)
+      @numbers = SortedSet.new
+      @numbers << extract_sequence_number(file_name)
+   end
   end
   
   def file_name
@@ -11,6 +17,16 @@ class FileSequence
   
   def falls_in_sequence?(file_name)
     @file_name == (transform(file_name))
+  end
+  
+  def << (file_name)
+    if falls_in_sequence?(file_name)
+      @numbers << extract_sequence_number(file_name)
+    end
+  end
+  
+  def numbers
+    @numbers.to_a
   end
   
 private
